@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head> 
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+  <!-- displays site properly based on user's device -->
+   
+  
+  <title>Frontend Mentor | Ping coming soon page</title>
+
+  <style>
+
+    /* Mobile Layout */
+@media (max-width: 375px) {
+    body {
+        width: 100%;
+        margin: 0 auto;
+        padding: 50px;
+    
+    }
+}
+
+/* Desktop Layout */
+@media (min-width: 1440px) {
+    body {
+        width: 100%;
+        margin: 0 auto;
+        padding: 50px;
+ 
+    }
+  }
+
+    #pingLogo {
+      display: block;
+      margin: 0 auto;
+      width: 100px;
+    }
+
+    h1 { 
+      color: hsl(0, 0%, 59%);
+      font-weight: 300;
+      font-size: 50px;
+      font-family: 'Libre Franklin', sans-serif;
+      padding-top: 30px;
+      text-align: center;
+    }
+
+#emphasis {
+      color: hsl(209, 33%, 12%);
+          }
+
+    h2 { 
+      color: hsl(209, 33%, 12%);
+      font-size: 20px;
+      font-weight: 300;
+      font-family: 'Libre Franklin', sans-serif;
+      padding-bottom: 30px;
+      text-align: center;
+      
+    }
+
+.email-form { 
+    display: flex;
+    justify-content: center; 
+}
+
+#email-input { 
+      border: 1px solid hsl(0, 0%, 59%);
+      border-radius: 100px;
+      font-size: 20px;
+      font-family: 'Libre Franklin', sans-serif;
+      font-weight: 300;
+      padding: 20px;
+      width:400px;
+
+    }
+
+    #button { 
+      background-color: hsl(223, 87%, 63%);
+      border-radius:100px;
+      border: none;
+      color: white;
+      font-size: 20px;
+      padding: 20px;
+      width: 150px;
+
+    }
+
+      button:hover {
+        background-color: hsl(223, 100%, 88%);
+
+      }
+
+      button:active {
+        background-color: hsl(332, 87%, 63%);
+
+      }
+
+    .dashboard {
+      display: flex; 
+      justify-content: center;
+      padding-top: 40px;
+
+      }
+
+    .article {
+      background-color: white;
+      border-radius: 10px;
+      justify-content: center;
+      max-width: 1000px;
+      margin: 0 auto;
+      margin-top: 85px;
+      margin-bottom: 85px;
+      padding: 20px;
+
+    }
+
+    .social {
+      display: flex;
+      justify-content: center; 
+      padding-top: 20px; 
+      margin-top: 50px;
+
+    }
+
+footer { 
+      color: hsl(0, 0%, 59%);
+      display: flex;
+      justify-content: center; 
+      padding-top: 30px;
+      font-size: 11px; 
+      font-family: 'Libre Franklin', sans-serif;
+      font: weight 50px;
+      text-align: center; 
+
+  }
+
+  </style>
+
+</head>
+
+<body>
+ 
+  <article>
+    <header style="padding-top: 25px;"></header>
+
+    <div> 
+      <img id="pingLogo" src="images/logo.svg">
+    </div>
+
+    <div>
+      <h1>We are launching 
+        <b id="emphasis">soon!
+        </b>
+      </h1> 
+    </div>
+    
+    <div>
+      <h2>
+        Subscribe and get notified
+      </h2>
+    </div>
+
+  <div class ="email-form">
+      <form >
+        <input type="email" id="email-input" placeholder="Your email address...">
+            <button id="button" type="submit">
+              Notify Me
+            </button>
+        <p id="error-message" style="display: none; color: red;"></p>
+    </form>
+
+    </div>
+
+    <div class = "dashboard"> 
+      <img src="images/illustration-dashboard.png" style="width: 100%; max-width: 600px;">
+    </div>
+   
+  
+      <div class = "social">
+
+        <a href="https://www.facebook.com/">
+
+          <img src="https://upload.wikimedia.org/wikipedia/commons/b/b9/2023_Facebook_icon.svg" width="20px" alt="Facebook" style="margin-right: 10px;">
+        </a>
+
+        <a href="https://twitter.com/">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/2/28/X_icon_black.svg" width="20px" alt="Twitter" style="margin-right: 10px;">
+        </a>
+
+        <a href="https://www.instagram.com/">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/5/58/Instagram-Icon.png" width="20px" alt="Instagram">
+        </a>
+
+      </div>
+  
+
+  <footer>
+      <div> 
+        <p>
+          &copy; Copyright Ping. All rights reserved.
+        </p>
+    </div>
+  </footer>
+  </article>
+ 
+<div>
+ 
+</div>
+
+  <script>
+         
+    function validateEmail(email) {
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailPattern.test(email);
+}
+
+function showError(message) {
+    const errorElement = document.getElementById('error-message');
+    errorElement.textContent = message;
+    errorElement.style.display = 'block';
+}
+
+document.getElementById('email-form').addEventListener('submit', function(event) {
+    event.preventDefault();
+    const emailInput = document.getElementById('email-input').value;
+    
+    if (!validateEmail(emailInput)) {
+        showError('Please provide a valid email address!');
+    } else {
+        // Proceed with form submission or other logic
+        alert('Thank you for subscribing!');
+    }
+});
+</script>
+
+</body>
+
+</html>
